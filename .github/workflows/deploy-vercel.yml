@@ -31,8 +31,22 @@ jobs:
         env:
           NODE_ENV: production
 
+      - name: Check Vercel Secrets
+        id: check-vercel
+        run: |
+          if [ -z "${{ secrets.VERCEL_TOKEN }}" ] || [ -z "${{ secrets.VERCEL_ORG_ID }}" ] || [ -z "${{ secrets.VERCEL_PROJECT_ID }}" ]; then
+            echo "vercel-configured=false" >> $GITHUB_OUTPUT
+            echo "⚠️ Vercel secrets not configured. Skipping Vercel deployment."
+            echo "To enable Vercel deployment, set the following secrets in Repository Settings:"
+            echo "- VERCEL_TOKEN"
+            echo "- VERCEL_ORG_ID" 
+            echo "- VERCEL_PROJECT_ID"
+          else
+            echo "vercel-configured=true" >> $GITHUB_OUTPUT
+          fi
+
       - name: Deploy to Vercel (Production)
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') && steps.check-vercel.outputs.vercel-configured == 'true'
         uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
@@ -42,13 +56,25 @@ jobs:
           vercel-args: '--prod'
 
       - name: Deploy to Vercel (Preview)
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && steps.check-vercel.outputs.vercel-configured == 'true'
         uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           working-directory: ./
+
+      - name: Vercel Deployment Skipped
+        if: steps.check-vercel.outputs.vercel-configured == 'false'
+        run: |
+          echo "✅ Build completed successfully!"
+          echo "🚀 To enable Vercel deployment:"
+          echo "1. Go to Repository Settings → Secrets and variables → Actions"
+          echo "2. Add the following secrets:"
+          echo "   - VERCEL_TOKEN: Get from https://vercel.com/account/tokens"
+          echo "   - VERCEL_ORG_ID: Run 'vercel project ls' to get org ID"
+          echo "   - VERCEL_PROJECT_ID: Run 'vercel project ls' to get project ID"
+          echo "3. Push to trigger automatic deployment"
 
   lighthouse-check:
     runs-on: ubuntu-latest
@@ -59,7 +85,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Check if Vercel deployment succeeded
+        id: check-deployment
+        run: |
+          # Vercel secrets가 있는지 확인
+          if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then
+            echo "lighthouse-enabled=false" >> $GITHUB_OUTPUT
+            echo "⚠️ Vercel deployment was skipped, Lighthouse check will also be skipped."
+          else
+            echo "lighthouse-enabled=true" >> $GITHUB_OUTPUT
+          fi
+
       - name: Run Lighthouse CI
+        if: steps.check-deployment.outputs.lighthouse-enabled == 'true'
         uses: treosh/lighthouse-ci-action@v10
         with:
           urls: |
@@ -67,3 +105,9 @@ jobs:
           configPath: '.github/lighthouse/lighthouserc.json'
           uploadArtifacts: true
           temporaryPublicStorage: true
+
+      - name: Lighthouse Check Skipped
+        if: steps.check-deployment.outputs.lighthouse-enabled == 'false'
+        run: |
+          echo "⚠️ Lighthouse check skipped because Vercel deployment was not configured."
+          echo "💡 Set up Vercel secrets to enable automatic performance monitoring."

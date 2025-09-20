@@ -295,8 +295,10 @@ GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
 
 #### **Vercel/Netlify (고급 기능)**
 1. **Repository Fork/Clone**
-2. **Secrets 설정** (위의 토큰들)
-3. **main 브랜치에 Push** → 자동 배포 시작!
+2. **main 브랜치에 Push** → 빌드 성공 (배포는 secrets 설정 후)
+3. **Secrets 설정** → 자동 배포 활성화!
+
+> ⚠️ **스마트 스킵 기능**: Secrets가 설정되지 않아도 오류 없이 빌드가 성공합니다. 친절한 안내 메시지와 함께 배포 단계만 스킵됩니다.
 
 ```bash
 git add .
@@ -309,6 +311,7 @@ git push origin main
 ## 📖 추가 문서
 
 - **[DEPLOY.md](./DEPLOY.md)**: 상세한 배포 가이드
+- **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)**: 문제 해결 가이드
 - **[GitHub Actions](./.github/workflows/)**: CI/CD 워크플로우 설정
 - **[Vercel 설정](./vercel.json)**: Vercel 배포 최적화
 - **[Netlify 설정](./netlify.toml)**: Netlify 배포 최적화
