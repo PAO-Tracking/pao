@@ -72,6 +72,9 @@ export function meta({}: Route.MetaArgs) {
     { name: "apple-mobile-web-app-capable", content: "yes" },
     { name: "apple-mobile-web-app-status-bar-style", content: "default" },
     { name: "apple-mobile-web-app-title", content: "파오 (P.A.O)" },
+    
+    // CSP 헤더 (XSS 보호)
+    { "http-equiv": "Content-Security-Policy", content: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://open.kakao.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https: wss:; frame-src https://open.kakao.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;" },
   ];
 }
 
@@ -498,14 +501,19 @@ export default function Home() {
                   {" "}퍼포먼스 마케팅
                 </span>
               </h1>
-              <p className="text-xl text-gray-300 mb-8">
+              <p className="text-xl text-gray-100 mb-8">
                 데이터 기반의 정밀한 타겟팅과 최적화로 
                 ROI 300% 이상의 확실한 성과를 보장합니다
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full font-semibold flex items-center gap-2"
+                onClick={() => {
+                  document.getElementById('contact')?.scrollIntoView({ 
+                    behavior: 'smooth' 
+                  });
+                }}
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full font-semibold flex items-center gap-2 cursor-pointer"
               >
                 무료 상담 받기 <ArrowRight size={20} />
               </motion.button>
@@ -788,15 +796,15 @@ export default function Home() {
                 <div className="h-64 overflow-hidden">
                   <img 
                     src={member.image}
-                    alt={member.name}
+                    alt={`${member.name} - ${member.role} 프로필 사진`}
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
                   <div className="text-blue-600 font-medium mb-2">{member.role}</div>
-                  <div className="text-gray-600 text-sm mb-3">{member.experience}</div>
-                  <div className="text-gray-700 text-sm">{member.specialization}</div>
+                  <div className="text-gray-700 text-sm mb-3">{member.experience}</div>
+                  <div className="text-gray-800 text-sm">{member.specialization}</div>
                 </div>
               </motion.div>
             ))}
