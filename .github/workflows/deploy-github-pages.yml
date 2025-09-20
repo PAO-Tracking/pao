@@ -121,5 +121,5 @@ jobs:
           urls: |
             https://${{ github.repository_owner }}.github.io/
           configPath: '.github/lighthouse/lighthouserc-pages.json'
-          uploadArtifacts: true
+          uploadArtifacts: false
           temporaryPublicStorage: true

@@ -103,7 +103,7 @@ jobs:
           urls: |
             https://p-a-o.com
           configPath: '.github/lighthouse/lighthouserc.json'
-          uploadArtifacts: true
+          uploadArtifacts: false
           temporaryPublicStorage: true
 
       - name: Lighthouse Check Skipped
