@@ -35,6 +35,10 @@ npm run dev
 ### 프로덕션 빌드
 
 ```bash
+# 정적 사이트 빌드 (GitHub Pages용)
+npm run build:static
+
+# 일반 빌드 (SSR 지원 플랫폼용) 
 npm run build
 npm start
 ```

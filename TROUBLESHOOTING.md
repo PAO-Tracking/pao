@@ -15,6 +15,17 @@ Error: Input required and not supplied: vercel-token
 #### 해결책: ✅ **자동 해결됨**
 - 2024-12-20 이후 버전에서는 이 오류가 발생하지 않습니다
 - Secrets가 없으면 친절한 안내 메시지와 함께 배포 단계만 스킵됩니다
+
+#### 문제: `ArgError: unknown or unexpected option: --ssr`
+```
+ArgError: unknown or unexpected option: --ssr
+    at arg (/node_modules/arg/index.js:132:13)
+```
+
+#### 해결책: ✅ **자동 해결됨** (2024-12-20)
+- React Router v7에서 `--ssr=false` CLI 옵션이 지원되지 않음
+- `react-router.config.ts`에서 `ssr: false` 설정으로 해결
+- `build:static` 스크립트가 정상 작동하도록 수정됨
 - GitHub Actions 로그에서 다음과 같은 메시지를 확인할 수 있습니다:
 
 ```
