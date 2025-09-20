@@ -26,6 +26,43 @@ ArgError: unknown or unexpected option: --ssr
 - React Router v7에서 `--ssr=false` CLI 옵션이 지원되지 않음
 - `react-router.config.ts`에서 `ssr: false` 설정으로 해결
 - `build:static` 스크립트가 정상 작동하도록 수정됨
+
+---
+
+### 3. **GitHub Pages 경로 오류**
+
+#### 문제: Assets 경로가 서브패스를 포함하지 않음
+```
+기대: https://username.github.io/pao/assets/entry.client-5NZ9AFj8.js
+실제: https://username.github.io/assets/entry.client-5NZ9AFj8.js
+```
+
+#### 해결책: ✅ **자동 해결됨** (2024-12-20)
+- Vite 설정에서 **CNAME 감지 기능** 추가:
+```ts
+// vite.config.ts
+export default defineConfig({
+  plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
+  base: (() => {
+    if (process.env.NODE_ENV !== "production") {
+      return "/"; // 개발 환경에서는 항상 루트
+    }
+    
+    if (process.env.GITHUB_PAGES) {
+      // CNAME 파일이 있으면 커스텀 도메인이므로 루트 경로 사용
+      const cnameExists = existsSync(join(process.cwd(), "public", "CNAME"));
+      return cnameExists ? "/" : "/pao/";
+    }
+    
+    return "/"; // 다른 배포 환경 (Vercel, Netlify)
+  })(),
+});
+```
+
+- **스마트 경로 감지**:
+  - CNAME 있음 (`p-a-o.com`) → `/assets/` (루트 경로)
+  - CNAME 없음 → `/pao/assets/` (서브패스)
+- GitHub Actions에서 `GITHUB_PAGES=true` 환경변수 설정으로 활성화
 - GitHub Actions 로그에서 다음과 같은 메시지를 확인할 수 있습니다:
 
 ```

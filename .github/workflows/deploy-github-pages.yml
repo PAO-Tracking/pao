@@ -90,7 +90,7 @@ jobs:
         run: npm run build:static
         env:
           NODE_ENV: production
-          PUBLIC_URL: /pao
+          GITHUB_PAGES: true
 
       - name: Comment PR
         uses: actions/github-script@v7

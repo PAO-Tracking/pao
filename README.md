@@ -38,9 +38,20 @@ npm run dev
 # 정적 사이트 빌드 (GitHub Pages용)
 npm run build:static
 
+# GitHub Pages 환경변수 설정으로 빌드
+NODE_ENV=production GITHUB_PAGES=true npm run build:static
+
 # 일반 빌드 (SSR 지원 플랫폼용) 
 npm run build
 npm start
+```
+
+### **스마트 경로 감지**
+
+빌드 시 CNAME 파일 존재 여부에 따라 자동으로 올바른 base path 설정:
+
+- ✅ **CNAME 있음** (`p-a-o.com`) → `/assets/` (루트 경로)
+- ✅ **CNAME 없음** → `/pao/assets/` (GitHub Pages 서브패스)
 ```
 
 ## 🎨 디자인 특징
@@ -251,6 +262,7 @@ const handleKakaoClick = () => {
 3. **커스텀 도메인 설정** (선택사항)
    - `public/CNAME` 파일에 `p-a-o.com` 이미 설정됨
    - DNS 설정에서 `your-username.github.io`를 CNAME으로 연결
+   - **자동 경로 감지**: CNAME 파일이 있으면 `/` 루트 경로로 빌드됨
 
 ### 📊 **자동 성능 모니터링**
 
