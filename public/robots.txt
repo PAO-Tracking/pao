@@ -1,0 +1,52 @@
+# 파오 (P.A.O) - 퍼포먼스 마케팅 전문가
+# https://p-a-o.com
+
+User-agent: *
+Allow: /
+
+# 크롤링 지연 시간 (밀리초)
+Crawl-delay: 1
+
+# 사이트맵 위치
+Sitemap: https://p-a-o.com/sitemap.xml
+
+# 주요 페이지들
+Allow: /#services
+Allow: /#stats  
+Allow: /#testimonials
+Allow: /#team
+Allow: /#contact
+
+# 개발 관련 파일들 차단
+Disallow: /build/
+Disallow: /node_modules/
+Disallow: /*.json
+Disallow: /*.ts
+Disallow: /*.tsx
+Disallow: /*.js.map
+Disallow: /src/
+
+# 이미지는 허용
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.gif
+Allow: /*.webp
+Allow: /*.svg
+Allow: /*.ico
+
+# 특정 검색 엔진 설정
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot  
+Allow: /
+
+User-agent: NaverBot
+Allow: /
+
+User-agent: Yeti
+Allow: /
+
+User-agent: DaumBot
+Allow: /

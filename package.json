@@ -4,14 +4,19 @@
   "type": "module",
   "scripts": {
     "build": "react-router build",
+    "build:static": "react-router build --ssr=false",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc"
+    "typecheck": "react-router typegen && tsc",
+    "preview:static": "npx serve build/client"
   },
   "dependencies": {
     "@react-router/node": "^7.7.1",
     "@react-router/serve": "^7.7.1",
+    "@types/react-transition-group": "^4.4.12",
+    "framer-motion": "^12.23.16",
     "isbot": "^5.1.27",
+    "lucide-react": "^0.544.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router": "^7.7.1"

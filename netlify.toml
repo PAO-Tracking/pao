@@ -1,0 +1,85 @@
+[build]
+  command = "npm run build"
+  functions = "build/server"
+  publish = "build/client"
+
+[build.environment]
+  NODE_ENV = "production"
+  NODE_VERSION = "20"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml"
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Content-Type = "text/plain"
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/manifest.json"
+  [headers.values]
+    Content-Type = "application/manifest+json"
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/build/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # 보안 헤더들
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    # Content Security Policy
+    Content-Security-Policy = '''
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://open.kakao.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data: https://images.unsplash.com;
+      connect-src 'self' https://open.kakao.com;
+      frame-src https://open.kakao.com;
+    '''
+
+# React Router SSR functions
+[[functions]]
+  function = "build/server/index.js"
+  runtime = "nodejs20.x"
+
+# 리디렉트 규칙
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/build/server/index.js/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/build/server/index.js"
+  status = 200
+  conditions = {Role = ["admin"]}
+
+# Form submissions
+[[forms]]
+  name = "contact"
+
+# 플러그인 설정
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+  [plugins.inputs]
+    baseUrl = "https://p-a-o.com"
+    pretty = true
+    trailingSlash = false
+
+[[plugins]]
+  package = "netlify-plugin-lighthouse"
+  [plugins.inputs]
+    audits = ["performance", "accessibility", "best-practices", "seo"]
