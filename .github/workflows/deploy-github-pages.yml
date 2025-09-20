@@ -46,7 +46,7 @@ jobs:
         run: npm run build:static
         env:
           NODE_ENV: production
-          PUBLIC_URL: /pao
+          PUBLIC_URL: /
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -119,7 +119,7 @@ jobs:
         uses: treosh/lighthouse-ci-action@v10
         with:
           urls: |
-            https://${{ github.repository_owner }}.github.io/pao
+            https://${{ github.repository_owner }}.github.io/
           configPath: '.github/lighthouse/lighthouserc-pages.json'
           uploadArtifacts: true
           temporaryPublicStorage: true
