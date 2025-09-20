@@ -29,40 +29,21 @@ ArgError: unknown or unexpected option: --ssr
 
 ---
 
-### 3. **GitHub Pages 경로 오류**
+### 3. **GitHub User Pages 설정**
 
-#### 문제: Assets 경로가 서브패스를 포함하지 않음
-```
-기대: https://username.github.io/pao/assets/entry.client-5NZ9AFj8.js
-실제: https://username.github.io/assets/entry.client-5NZ9AFj8.js
-```
-
-#### 해결책: ✅ **자동 해결됨** (2024-12-20)
-- Vite 설정에서 **CNAME 감지 기능** 추가:
+#### 변경사항: Repository 이름을 `pao-tracking.github.io`로 설정
+- ✅ **User Pages**: 루트 도메인 `https://pao-tracking.github.io`에 직접 배포
+- ✅ **간단한 설정**: 서브패스 로직 불필요
+- ✅ **Vite 설정 단순화**:
 ```ts
-// vite.config.ts
+// vite.config.ts - 단순화된 설정
 export default defineConfig({
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
-  base: (() => {
-    if (process.env.NODE_ENV !== "production") {
-      return "/"; // 개발 환경에서는 항상 루트
-    }
-    
-    if (process.env.GITHUB_PAGES) {
-      // CNAME 파일이 있으면 커스텀 도메인이므로 루트 경로 사용
-      const cnameExists = existsSync(join(process.cwd(), "public", "CNAME"));
-      return cnameExists ? "/" : "/pao/";
-    }
-    
-    return "/"; // 다른 배포 환경 (Vercel, Netlify)
-  })(),
+  base: "/", // 항상 루트 경로
 });
 ```
 
-- **스마트 경로 감지**:
-  - CNAME 있음 (`p-a-o.com`) → `/assets/` (루트 경로)
-  - CNAME 없음 → `/pao/assets/` (서브패스)
-- GitHub Actions에서 `GITHUB_PAGES=true` 환경변수 설정으로 활성화
+- **결과**: 모든 assets가 `/assets/` 루트 경로로 생성됨
 - GitHub Actions 로그에서 다음과 같은 메시지를 확인할 수 있습니다:
 
 ```

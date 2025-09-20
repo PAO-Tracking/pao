@@ -38,20 +38,18 @@ npm run dev
 # 정적 사이트 빌드 (GitHub Pages용)
 npm run build:static
 
-# GitHub Pages 환경변수 설정으로 빌드
-NODE_ENV=production GITHUB_PAGES=true npm run build:static
-
 # 일반 빌드 (SSR 지원 플랫폼용) 
 npm run build
 npm start
 ```
 
-### **스마트 경로 감지**
+### **GitHub User Pages**
 
-빌드 시 CNAME 파일 존재 여부에 따라 자동으로 올바른 base path 설정:
+`pao-tracking.github.io` Repository로 설정되어 항상 루트 도메인에 배포됩니다:
 
-- ✅ **CNAME 있음** (`p-a-o.com`) → `/assets/` (루트 경로)
-- ✅ **CNAME 없음** → `/pao/assets/` (GitHub Pages 서브패스)
+- ✅ **배포 URL**: `https://pao-tracking.github.io`
+- ✅ **Assets 경로**: `/assets/` (루트 경로)
+- ✅ **간단한 설정**: 복잡한 서브패스 로직 불필요
 ```
 
 ## 🎨 디자인 특징
@@ -256,13 +254,8 @@ const handleKakaoClick = () => {
 
 2. **자동 배포 활성화** (별도 설정 불필요)
    - `main` 브랜치 푸시 → 정적 사이트 자동 배포
-   - **URL**: `https://your-username.github.io/pao` (또는 `https://p-a-o.com`)
+   - **URL**: `https://pao-tracking.github.io`
    - **무료**: GitHub 계정만 있으면 사용 가능
-
-3. **커스텀 도메인 설정** (선택사항)
-   - `public/CNAME` 파일에 `p-a-o.com` 이미 설정됨
-   - DNS 설정에서 `your-username.github.io`를 CNAME으로 연결
-   - **자동 경로 감지**: CNAME 파일이 있으면 `/` 루트 경로로 빌드됨
 
 ### 📊 **자동 성능 모니터링**
 
@@ -336,14 +329,14 @@ git push origin main
 
 - **이메일**: goblinprojectm@gmail.com
 - **카카오톡 상담**: https://open.kakao.com/me/lets_goblin
-- **웹사이트**: https://p-a-o.com
+- **웹사이트**: https://pao-tracking.github.io
 
 ## 📊 SEO 체크리스트
 
 배포 전 필수 확인사항:
-- [x] 실제 도메인으로 URL 변경 (p-a-o.com 완료)
+- [x] User Pages로 도메인 설정 (pao-tracking.github.io 완료)
 - [ ] OG 이미지 (1200x630) 업로드
-- [ ] 다양한 사이즈 파비콘 제작 및 업로드  
+- [ ] 다양한 사이즈 파비콘 제작 및 업로드
 - [ ] Google Search Console에 사이트맵 제출
 - [ ] robots.txt 접근성 확인
 - [ ] 구조화 데이터 검증 (Rich Results Test)
