@@ -18,15 +18,15 @@ import { useState, useEffect } from "react";
 
 export function meta({}: Route.MetaArgs) {
   const siteUrl = "https://p-a-o.com"; // 실제 도메인으로 변경 필요
-  const title = "파오 (P.A.O) - 성과 중심 퍼포먼스 마케팅 전문가";
-  const description = "데이터 기반 마케팅으로 ROI 300% 이상의 확실한 성과를 보장하는 파오(P.A.O). 정밀 타겟팅, 실시간 최적화, 전담 매니저 서비스로 비즈니스 성장을 가속화합니다.";
+  const title = "파오 (P.A.O) - 바이럴 및 퍼포먼스 통합 마케팅 솔루션";
+  const description = "가장 단순한 것에서 시작해, 가장 탁월한 결과를 내는 PAO(Project Aglio e Olio). 네이버 플레이스, 블로그, 인스타그램/유튜브 통합 마케팅으로 검색량 증대와 전환율 극대화를 실현합니다.";
   const imageUrl = `${siteUrl}/og-image.jpg`; // OG 이미지 경로
 
   return [
     // 기본 SEO 메타 태그
     { title },
     { name: "description", content: description },
-    { name: "keywords", content: "퍼포먼스 마케팅, 디지털 마케팅, ROI 최적화, 데이터 기반 마케팅, 온라인 광고, 마케팅 대행, 파오, P.A.O" },
+    { name: "keywords", content: "바이럴 마케팅, 퍼포먼스 마케팅, 네이버 플레이스, 블로그 체험단, 인스타그램 마케팅, 유튜브 크리에이터, 통합 마케팅, 파오, P.A.O, Project Aglio e Olio" },
     { name: "author", content: "파오 (P.A.O)" },
     { name: "robots", content: "index, follow" },
     { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -44,14 +44,14 @@ export function meta({}: Route.MetaArgs) {
     
     // OpenGraph 메타 태그 (Facebook, LinkedIn 등)
     { property: "og:type", content: "website" },
-    { property: "og:site_name", content: "파오 (P.A.O) - 퍼포먼스 마케팅" },
+    { property: "og:site_name", content: "파오 (P.A.O) - 바이럴 및 퍼포먼스 통합 마케팅" },
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:url", content: siteUrl },
     { property: "og:image", content: imageUrl },
     { property: "og:image:width", content: "1200" },
     { property: "og:image:height", content: "630" },
-    { property: "og:image:alt", content: "파오 (P.A.O) - 퍼포먼스 마케팅 전문가" },
+    { property: "og:image:alt", content: "파오 (P.A.O) - 바이럴 및 퍼포먼스 통합 마케팅" },
     { property: "og:locale", content: "ko_KR" },
     
     // Twitter Cards
@@ -61,7 +61,7 @@ export function meta({}: Route.MetaArgs) {
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
     { name: "twitter:image", content: imageUrl },
-    { name: "twitter:image:alt", content: "파오 (P.A.O) - 퍼포먼스 마케팅 전문가" },
+    { name: "twitter:image:alt", content: "파오 (P.A.O) - 바이럴 및 퍼포먼스 통합 마케팅" },
     
     // 추가 SEO 메타 태그
     { name: "format-detection", content: "telephone=no" },
@@ -166,32 +166,24 @@ function JsonLdScript() {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "정밀 타겟팅",
-            "description": "AI 기반 고객 분석으로 정확한 타겟 설정"
+            "name": "네이버 플레이스 통합 솔루션",
+            "description": "전환 최적화, 통합 관리, 유입 확장 전략, 노출 분석"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "실시간 최적화",
-            "description": "24/7 데이터 모니터링과 자동 최적화"
+            "name": "네이버 블로그 전략 체험단",
+            "description": "키워드 기반 검색 시장 선점, 전략적 섭외, 성과 분석"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "성과 분석",
-            "description": "상세한 ROI 분석과 성과 리포트 제공"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "전담 매니저",
-            "description": "경험 풍부한 전문가의 1:1 맞춤 관리"
+            "name": "인스타그램 & 유튜브 크리에이터 매칭",
+            "description": "FIT 크리에이터 매칭, 바이럴 트래픽 확장, 검색 수요 증대"
           }
         }
       ]
@@ -202,9 +194,9 @@ function JsonLdScript() {
   const websiteData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "파오 (P.A.O) - 퍼포먼스 마케팅",
+    "name": "파오 (P.A.O) - 바이럴 및 퍼포먼스 통합 마케팅",
     "url": siteUrl,
-    "description": "데이터 기반 마케팅으로 ROI 300% 이상의 확실한 성과를 보장하는 파오(P.A.O)의 공식 홈페이지",
+    "description": "가장 단순한 것에서 시작해 가장 탁월한 결과를 내는 파오(P.A.O)의 공식 홈페이지",
     "publisher": {
       "@type": "Organization",
       "name": "파오 (P.A.O)",
@@ -225,18 +217,18 @@ function JsonLdScript() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "파오(P.A.O)의 퍼포먼스 마케팅 서비스는 어떤 것인가요?",
+        "name": "파오(P.A.O)의 통합 마케팅 솔루션은 어떤 것인가요?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "데이터 기반의 정밀한 타겟팅, 실시간 최적화, 성과 분석, 전담 매니저 서비스를 통해 ROI 300% 이상의 확실한 성과를 보장하는 퍼포먼스 마케팅 서비스입니다."
+          "text": "네이버 플레이스 통합 솔루션, 네이버 블로그 전략 체험단, 인스타그램/유튜브 크리에이터 매칭의 3가지 솔루션을 통해 채널 간 시너지를 창출하여 검색량 증대와 구매 전환율 극대화를 실현하는 통합 마케팅 서비스입니다."
         }
       },
       {
         "@type": "Question", 
-        "name": "파오(P.A.O)의 주요 성과는 무엇인가요?",
+        "name": "파오(P.A.O)의 핵심 경쟁력은 무엇인가요?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "평균 ROI 300% 이상, 500개 이상의 성공 캠페인, 98%의 고객 만족도, 24/7 실시간 모니터링을 통해 검증된 성과를 제공합니다."
+          "text": "성과 중심의 FIT 크리에이터 매칭과 검색량 증대 및 전환을 위한 통합 전략 구축을 통해 브랜드와 가장 연관성이 높은 크리에이터를 발굴하고, 채널 간 유기적인 연동으로 구매 전환율이 높은 유효 트래픽을 확보합니다."
         }
       },
       {
@@ -496,14 +488,14 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6">
-                성과가 입증된
+                가장 단순한 것에서 시작해
                 <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  {" "}퍼포먼스 마케팅
+                  {" "}가장 탁월한 결과
                 </span>
               </h1>
               <p className="text-xl text-gray-100 mb-8">
-                데이터 기반의 정밀한 타겟팅과 최적화로 
-                ROI 300% 이상의 확실한 성과를 보장합니다
+                PAO(Project Aglio e Olio)는 마늘과 올리브처럼 근본적인 것부터 시작하여<br/>
+                바이럴 및 퍼포먼스 통합 마케팅으로 최고의 성과를 창출합니다
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -547,38 +539,32 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-6">
-              핵심 서비스
+              PAO의 3가지 솔루션
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              데이터 기반의 체계적인 접근으로 비즈니스 성장을 가속화합니다
+              브랜드 목표 달성에 최적화된 전략을 설계하고 실행하는 마케팅 솔루션 프로바이더
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: <Target className="w-12 h-12 text-blue-600" />,
-                title: "정밀 타겟팅",
-                description: "AI 기반 고객 분석으로 정확한 타겟 설정",
-                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                title: "Solution 1: 네이버 플레이스 통합 솔루션",
+                description: "노출 → 유입 → 전환율 극대화. 전문 사진 촬영, 통합 관리, 유입 확장 전략, 노출 분석",
+                image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
               },
               {
                 icon: <BarChart3 className="w-12 h-12 text-green-600" />,
-                title: "실시간 최적화",
-                description: "24/7 데이터 모니터링과 자동 최적화",
-                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                title: "Solution 2: 네이버 블로그 전략 체험단",
+                description: "키워드 기반 검색 시장 선점. 상위 노출 블로거 전략적 섭외, 캐페인 설계, 성과 분석",
+                image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
               },
               {
                 icon: <TrendingUp className="w-12 h-12 text-purple-600" />,
-                title: "성과 분석",
-                description: "상세한 ROI 분석과 성과 리포트 제공",
-                image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-              },
-              {
-                icon: <Users className="w-12 h-12 text-indigo-600" />,
-                title: "전담 매니저",
-                description: "경험 풍부한 전문가의 1:1 맞춤 관리",
-                image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                title: "Solution 3: 인스타그램 & 유튜브 크리에이터 매칭",
+                description: "목표 기반 바이럴 트래픽 확장. FIT 크리에이터 매칭, 콘텐츠 기획, 검색 수요 증대",
+                image: "https://images.unsplash.com/photo-1611262588024-d12430b98920?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
               }
             ].map((service, index) => (
               <motion.div
@@ -598,10 +584,10 @@ export default function Home() {
                 </div>
                 <div className="p-6">
                   <div className="mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600">{service.description}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -619,18 +605,18 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-6">
-                입증된 성과
+                PAO의 핵심 경쟁력
               </h2>
               <p className="text-gray-600 text-lg mb-8">
-                수많은 클라이언트와 함께 만들어낸 실제 성과입니다. 
-                데이터가 증명하는 확실한 결과를 경험해보세요.
+                FIT 매칭과 통합 시너지로 만들어내는 차별화된 성과. 
+                브랜드/상품과 가장 연관성이 높은 크리에이터를 매칭합니다.
               </p>
               <div className="grid grid-cols-2 gap-8">
                 {[
-                  { number: "300%+", label: "평균 ROI", desc: "투자 대비 수익" },
-                  { number: "500+", label: "성공 캠페인", desc: "완료된 프로젝트" },
-                  { number: "98%", label: "고객 만족도", desc: "재계약률" },
-                  { number: "24/7", label: "실시간 모니터링", desc: "지속적인 관리" }
+                  { number: "FIT 매칭", label: "성과 중심 크리에이터", desc: "브랜드 연관성 최우선" },
+                  { number: "통합 시너지", label: "체널 간 연동", desc: "유기적 트래픽 흐름" },
+                  { number: "전환 극대화", label: "구매 전환율", desc: "유효 트래픽 확보" },
+                  { number: "근본부터", label: "문제 진단 및 개선", desc: "기본에 충실한 접근" }
                 ].map((stat, index) => (
                   <motion.div
                     key={index}
@@ -639,7 +625,7 @@ export default function Home() {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     className="text-center"
                   >
-                    <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">
+                    <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">
                       {stat.number}
                     </div>
                     <div className="text-gray-900 font-semibold">{stat.label}</div>
@@ -676,12 +662,12 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-6">
-              고객 성공사례
-            </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              실제 고객들이 경험한 성과와 만족도를 확인해보세요
-            </p>
+              <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-6">
+                PAO Flow: 통합 시너지 전략
+              </h2>
+              <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                개별 서비스 운영이 아닌, 체널 간의 유기적인 연동으로 성과 극대화를 실현
+              </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
