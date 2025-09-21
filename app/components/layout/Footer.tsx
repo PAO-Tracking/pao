@@ -14,10 +14,10 @@ export function Footer() {
             <div className="space-y-1 text-xs text-gray-400">
               <div><span className="font-medium text-gray-300">상호:</span> 파오(P.A.O)</div>
               <div><span className="font-medium text-gray-300">대표자명:</span> 김국진</div>
-              <div><span className="font-medium text-gray-300">사업자번호:</span> 726-77-01105</div>
+              <div><span className="font-medium text-gray-300">사업자번호:</span> 726-44-01105</div>
               <div>
                 <span className="font-medium text-gray-300">사업장주소:</span> 
-                경기도 수원시 권선구 소호동로14번길 52-39, 207동 503호(서둔동, 상익리베리움)
+                경기도 수원시 권선구 서호동로14번길 52-39, 207동 503호(서둔동, 상익리베리움)
               </div>
             </div>
           </div>
