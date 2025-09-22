@@ -3,7 +3,7 @@ import { MessageCircle } from "lucide-react";
 
 export function KakaoTalkBubble() {
   const handleKakaoClick = () => {
-    window.open('https://open.kakao.com/me/lets_goblin', '_blank');
+    window.open('https://open.kakao.com/me/projectaglioeolio', '_blank');
   };
 
   return (

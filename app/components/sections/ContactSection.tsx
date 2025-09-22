@@ -22,18 +22,18 @@ export function ContactSection() {
             
             <div className="space-y-4 mb-8">
               <motion.a
-                href="mailto:goblinprojectm@gmail.com"
+                href="mailto:yummy@p-a-o.com"
                 whileHover={{ scale: 1.02 }}
                 className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-4 rounded-2xl flex items-center gap-3 hover:bg-white/20 transition-all block"
               >
                 <Mail size={24} className="text-blue-400" />
                 <div>
                   <div className="font-medium">이메일 문의</div>
-                  <div className="text-sm text-gray-300">goblinprojectm@gmail.com</div>
+                  <div className="text-sm text-gray-300">yummy@p-a-o.com</div>
                 </div>
               </motion.a>
               <motion.a
-                href="https://open.kakao.com/me/lets_goblin"
+                href="https://open.kakao.com/me/projectaglioeolio"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}

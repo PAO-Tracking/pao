@@ -27,14 +27,14 @@ export function Footer() {
             <h4 className="text-base font-semibold mb-3 text-white">연락처</h4>
             <div className="space-y-2">
               <a 
-                href="mailto:goblinprojectm@gmail.com" 
+                href="mailto:yummy@p-a-o.com" 
                 className="flex items-center text-sm text-gray-300 hover:text-blue-400 transition-colors duration-200"
               >
                 <Mail size={14} className="mr-2" />
-                goblinprojectm@gmail.com
+                yummy@p-a-o.com
               </a>
               <a 
-                href="https://open.kakao.com/me/lets_goblin" 
+                href="https://open.kakao.com/me/projectaglioeolio" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center text-sm text-gray-300 hover:text-yellow-400 transition-colors duration-200"

@@ -12,14 +12,14 @@ export function JsonLdScript() {
     "url": siteUrl,
     "logo": `${siteUrl}/logo.png`,
     "image": `${siteUrl}/og-image.jpg`,
-    "email": "goblinprojectm@gmail.com",
+    "email": "yummy@p-a-o.com",
     "sameAs": [
-      "https://open.kakao.com/me/lets_goblin"
+      "https://open.kakao.com/me/projectaglioeolio"
     ],
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "email": "goblinprojectm@gmail.com",
+      "email": "yummy@p-a-o.com",
       "availableLanguage": ["Korean", "English"]
     },
     "areaServed": {
@@ -44,8 +44,8 @@ export function JsonLdScript() {
     "name": "파오 (P.A.O)",
     "description": "가장 단순한 것에서 시작해 가장 탁월한 결과를 내는 바이럴 및 퍼포먼스 통합 마케팅 전문가",
     "url": siteUrl,
-    "telephone": "goblinprojectm@gmail.com",
-    "email": "goblinprojectm@gmail.com",
+    "telephone": "yummy@p-a-o.com",
+    "email": "yummy@p-a-o.com",
     "priceRange": "$$",
     "paymentAccepted": "Cash, Credit Card, Bank Transfer",
     "currenciesAccepted": "KRW",
@@ -53,7 +53,7 @@ export function JsonLdScript() {
     "image": `${siteUrl}/og-image.jpg`,
     "logo": `${siteUrl}/logo.png`,
     "sameAs": [
-      "https://open.kakao.com/me/lets_goblin"
+      "https://open.kakao.com/me/projectaglioeolio"
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -157,7 +157,7 @@ export function JsonLdScript() {
         "name": "문의는 어떻게 할 수 있나요?",
         "acceptedAnswer": {
           "@type": "Answer", 
-          "text": "이메일(goblinprojectm@gmail.com) 또는 카카오톡 오픈채팅(https://open.kakao.com/me/lets_goblin)을 통해 언제든지 문의하실 수 있습니다."
+          "text": "이메일(yummy@p-a-o.com) 또는 카카오톡 오픈채팅(https://open.kakao.com/me/projectaglioeolio)을 통해 언제든지 문의하실 수 있습니다."
         }
       }
     ]
