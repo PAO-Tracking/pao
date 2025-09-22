@@ -3,6 +3,8 @@ import type { Config } from "@react-router/dev/config";
 export default {
   // Config options...
   // Server-side render by default, to enable SPA mode set this to `false`
-  // GitHub Pages 정적 배포를 위해 SPA 모드 활성화
-  ssr: false,
+  // SEO를 위해 SSR 활성화하고 정적 사이트로 빌드
+  ssr: true,
+  // 정적 사이트 생성을 위한 prerender 설정
+  prerender: ["/"],
 } satisfies Config;

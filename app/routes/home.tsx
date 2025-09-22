@@ -75,8 +75,8 @@ export function meta({}: Route.MetaArgs) {
     { name: "apple-mobile-web-app-status-bar-style", content: "default" },
     { name: "apple-mobile-web-app-title", content: "파오 (P.A.O)" },
     
-    // CSP 헤더 (XSS 보호)
-    { "http-equiv": "Content-Security-Policy", content: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://open.kakao.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https: wss:; frame-src https://open.kakao.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;" },
+    // CSP 헤더 (XSS 보호) - 정적 빌드에서는 제거
+    // { "http-equiv": "Content-Security-Policy", content: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://open.kakao.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https: wss:; frame-src https://open.kakao.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;" },
   ];
 }
 
