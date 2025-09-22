@@ -18,6 +18,7 @@ export function JsonLdScript() {
       "streetAddress": "서호동로14번길 52-39, 207동 503호",
       "addressLocality": "수원시",
       "addressRegion": "경기도",
+      "postalCode": "16619",
       "addressCountry": "KR"
     },
     "sameAs": [
@@ -58,6 +59,7 @@ export function JsonLdScript() {
       "streetAddress": "서호동로14번길 52-39, 207동 503호",
       "addressLocality": "수원시",
       "addressRegion": "경기도",
+      "postalCode": "16619",
       "addressCountry": "KR"
     },
     "priceRange": "$$",
