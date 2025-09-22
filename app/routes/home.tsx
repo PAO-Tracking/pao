@@ -37,12 +37,20 @@ export function meta({}: Route.MetaArgs) {
     // Canonical URL
     { rel: "canonical", href: siteUrl },
     
-    // Favicon 및 아이콘들
+    // Favicon 및 아이콘들 (완전한 SEO 설정)
     { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
     { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
     { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
+    
+    // Apple 아이콘들
     { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
-    { rel: "manifest", href: "/manifest.json" },
+    
+    // Android Chrome 아이콘들
+    { rel: "icon", type: "image/png", sizes: "192x192", href: "/android-chrome-192x192.png" },
+    { rel: "icon", type: "image/png", sizes: "512x512", href: "/android-chrome-512x512.png" },
+    
+    // Web App Manifest
+    { rel: "manifest", href: "/site.webmanifest" },
     
     // OpenGraph 메타 태그 (Facebook, LinkedIn 등)
     { property: "og:type", content: "website" },

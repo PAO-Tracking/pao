@@ -10,7 +10,7 @@ export function JsonLdScript() {
     "alternateName": "Project Aglio e Olio",
     "description": "바이럴 및 퍼포먼스 통합 마케팅 솔루션 전문 기업",
     "url": siteUrl,
-    "logo": `${siteUrl}/logo.png`,
+    "logo": `${siteUrl}/android-chrome-512x512.png`,
     "image": `${siteUrl}/og-image.jpg`,
     "email": "yummy@p-a-o.com",
     "address": {
@@ -67,7 +67,7 @@ export function JsonLdScript() {
     "currenciesAccepted": "KRW",
     "openingHours": "Mo-Fr 09:00-18:00",
     "image": `${siteUrl}/og-image.jpg`,
-    "logo": `${siteUrl}/logo.png`,
+    "logo": `${siteUrl}/android-chrome-512x512.png`,
     "sameAs": [
       "https://open.kakao.com/me/projectaglioeolio"
     ],
