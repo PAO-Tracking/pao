@@ -13,6 +13,13 @@ export function JsonLdScript() {
     "logo": `${siteUrl}/logo.png`,
     "image": `${siteUrl}/og-image.jpg`,
     "email": "yummy@p-a-o.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "서호동로14번길 52-39, 207동 503호",
+      "addressLocality": "수원시",
+      "addressRegion": "경기도",
+      "addressCountry": "KR"
+    },
     "sameAs": [
       "https://open.kakao.com/me/projectaglioeolio"
     ],
@@ -46,6 +53,13 @@ export function JsonLdScript() {
     "url": siteUrl,
     "telephone": "yummy@p-a-o.com",
     "email": "yummy@p-a-o.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "서호동로14번길 52-39, 207동 503호",
+      "addressLocality": "수원시",
+      "addressRegion": "경기도",
+      "addressCountry": "KR"
+    },
     "priceRange": "$$",
     "paymentAccepted": "Cash, Credit Card, Bank Transfer",
     "currenciesAccepted": "KRW",
